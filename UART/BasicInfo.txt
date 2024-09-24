@@ -1,0 +1,139 @@
+
+Table 46. Power Control for Peripherals register (PCONP - address 0x400F C0C4) bit 
+description
+
+3 PCUART0 UART0 power/clock control bit. 1
+
+							1000	=Binary
+0	0	0	0	0	0	0	8	=Hex
+
+So PCONP is - 0x00000008 
+
+------------------------------------------------------------------------------
+
+Pin Function Select register 0 (PINSEL0 - 0x4002 C000
+
+ 		00    01   10      11    rstVal
+5:4 P0.2 GPIOPort0.2 TXD0 AD0.7 Reserved 00
+7:6 P0.3 GPIOPort0.3 RXD0 AD0.6 Reserved 00
+		UART=0101
+
+						0101		=Binary
+0	0	0	0	0	0	5	0	=Hex
+
+So pinsel is - 0x00000050
+
+------------------------------------------------------------------------------
+Table 279: UARTn Line Control Register (U0LCR - address 0x4000 C00C, U2LCR - 0x4009 800C, U3LCR - 
+0x4009 C00C) bit description
+
+Bit Symbol 		Value 	Description 		Reset Value
+1:0 Word Length Select 	00 	5-bit character length 	0
+			01 	6-bit character length
+			10 	7-bit character length
+			[11] 	8-bit character length
+2 Stop Bit Select 	0 	1 stop bit. 0
+			1 	2 stop bits (1.5 if UnLCR[1:0]=00).
+3 Parity Enable 	0	Disable parity generation and checking. 0
+			1 	Enable parity generation and checking.
+5:4 Parity Select 	00 	Odd parity. Number of 1s in the transmitted character and the 				attached parity bit will be odd.					0
+			01 	Even Parity. Number of 1s in the transmitted character and the 				attached parity bit will be even.
+			10 	Forced "1" stick parity.
+			11 	Forced "0" stick parity.
+6 Break Control 	0 	Disable break transmission. 	0
+			1 	Enable break transmission. Output pin UARTn TXD is forced to 				logic 0 when UnLCR[6] is active high.
+7 Divisor Latch 
+Access Bit (DLAB)	0 	Disable access to Divisor Latches. 0
+			[1] 	Enable access to Divisor Latches.
+31:8 - 				Reserved, user software should not write ones to reserved bits. 				The value read from a reserved bit is not defined.		
+								NA
+
+						1__0	_011	=Binary
+0	0	0	0	0	0	8	3	=Hex
+
+So LCR is - 0x00000083  - Enable latch to Lock Baudrate
+
+------------------------------------------------------------------------------
+
+set Baudrate by using DLL and DLM
+DLL = DLest [7:0]
+DLM = DLest [15:8]
+
+
+
+
+------------------------------------------------------------------------------
+
+						0__0	_011	=Binary
+0	0	0	0	0	0	0	3	=Hex
+
+So LCR is - 0x00000083  - Disable latch to Lock Baudrate
+
+------------------------------------------------------------------------------
+
+Table 278: UARTn FIFO Control Register (U0FCR - address 0x4000 C008, U2FCR - 0x4009 8008, U3FCR - 0x4007 C008) bit description
+
+Bit Symbol 	Value 	Description 				Reset Value
+0 FIFO Enable 	0 	UARTn FIFOs are disabled. Must not be used in the application. 0
+		[1] 	Active high enable for both UARTn Rx and TX FIFOs and UnFCR[7:1] access. This bit must be set for proper UART operation. Any transition on this bit will 
+automatically clear the related UART FIFOs.
+
+1 RX FIFO Reset	0 	No impact on either of UARTn FIFOs. 	0
+		[1] 	Writing a logic 1 to UnFCR[1] will clear all bytes in UARTn Rx FIFO, reset the pointer logic. This bit is self-clearing.
+
+2 TX FIFO Reset	0 	No impact on either of UARTn FIFOs. 	0
+		[1] 	Writing a logic 1 to UnFCR[2] will clear all bytes in UARTn TX FIFO, reset the pointer logic. This bit is self-clearing.
+
+
+							_111	=Binary
+0	0	0	0	0	0	0	7	=Hex
+
+So FCR is - 0x00000007
+
+------------------------------------------------------------------------------
+
+if RTR = 1 - Transmitter is Free
+if RBR = 1 - Reciever is Free
+
+To check this Use LSR
+
+
+Table 280: UARTn Line Status Register (U0LSR - address 0x4000 C014, U2LSR - 0x4009 8014, U3LSR - 0x4009 C014) 
+bit description
+Bit Symbol 		Value 	Description Reset Value
+
+5 Transmitter 
+Holding Register 
+Empty (THRE))			THRE is set immediately upon detection of an empty UARTn THR and is cleared on a UnTHR write.				1
+			0 	UnTHR contains valid data.
+			1 	UnTHR is empty
+
+
+						__1_	0000	=Binary
+0	0	0	0	0	0	2	0	=Hex
+
+So LSR is - 0x00000020
+
+------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

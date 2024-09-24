@@ -1,0 +1,89 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.33.0.0
+Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Ashish B, ss, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.33.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.33.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      Segger\JL2CM3.dll V2.99.38.0
+Dialog DLL:      LPC1768.DLL
+ 
+<h2>Project:</h2>
+D:\Ashish_B\Microcontroller\Micro_Workspace\LPC1786_Project\UART\Uart_project.uvprojx
+Project File Date:  09/23/2024
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Rebuild target 'Target 1'
+assembling startup_LPC17xx.s...
+compiling PIN_LPC17xx.c...
+compiling system_LPC17xx.c...
+compiling GPIO_LPC17xx.c...
+compiling UART.c...
+UART.h(5): warning:  #1-D: last line of file ends without a newline
+  void UART_printf(char*);
+UART.c: 1 warning, 0 errors
+linking...
+.\Objects\Uart_project.axf: Warning: L6914W: option ropi ignored when using --scatter.
+.\Objects\Uart_project.axf: Warning: L6914W: option rwpi ignored when using --scatter.
+Program Size: Code=884 RO-data=252 RW-data=12 ZI-data=612  
+Finished: 0 information, 2 warning and 0 error messages.
+FromELF: creating hex file...
+".\Objects\Uart_project.axf" - 0 Error(s), 3 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.7.0.pack
+                ARM.CMSIS.5.7.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.4.0
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.LPC1700_DFP.2.7.2.pack
+                Keil.LPC1700_DFP.2.7.2
+                NXP LPC1700 Series Device Support, Drivers and Examples for MCB1700 and LPC1788-32
+   * Component: GPIO Version: 1.1.0
+   * Component: PIN Version: 1.0.0
+   * Component: Startup Version: 1.0.0
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\Device\LPC1768
+  .\RTE\_Target_1
+  C:\Users\SWENG03\ARM\CMSIS\5.7.0\CMSIS\Core\Include
+  C:\Users\SWENG03\Keil\LPC1700_DFP\2.7.2\Device\Include
+  C:\Users\SWENG03\Keil\LPC1700_DFP\2.7.2\RTE_Driver
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.4.0
+
+   * Component: Keil::Device:GPIO:1.1.0
+      Include file:  RTE_Driver\GPIO_LPC17xx.h
+      Source file:   RTE_Driver\GPIO_LPC17xx.c
+
+   * Component: Keil::Device:PIN:1.0.0
+      Include file:  RTE_Driver\PIN_LPC17xx.h
+      Source file:   RTE_Driver\PIN_LPC17xx.c
+
+   * Component: Keil::Device:Startup:1.0.0
+      Include file:  Device\Include\LPC17xx.h
+      Source file:   Device\Source\system_LPC17xx.c
+      Include file:  RTE_Driver\Config\RTE_Device.h
+      Source file:   Device\Source\ARM\startup_LPC17xx.s
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>
